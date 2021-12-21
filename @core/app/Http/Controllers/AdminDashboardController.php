@@ -245,6 +245,7 @@ class AdminDashboardController extends Controller
             'site_footer_copyright' => 'required|string',
             'site_color' => 'required|string',
             'site_main_color_two' => 'required|string',
+            'site_background_color' => 'required|string',
         ]);
 
         update_static_option('site_title', $request->site_title);
@@ -252,6 +253,7 @@ class AdminDashboardController extends Controller
         update_static_option('site_footer_copyright', $request->site_footer_copyright);
         update_static_option('site_color', $request->site_color);
         update_static_option('site_main_color_two', $request->site_main_color_two);
+        update_static_option('site_background_color', $request->site_background_color);
 
         return redirect()->back()->with(['msg' => 'Basic Settings Update Success', 'type' => 'success']);
     }

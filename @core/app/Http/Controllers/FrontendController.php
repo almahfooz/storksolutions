@@ -24,12 +24,9 @@ use App\Testimonial;
 use App\Works;
 use App\WorksCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Symfony\Component\Process\Process;
 
 class FrontendController extends Controller
 {

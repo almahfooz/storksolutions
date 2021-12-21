@@ -1,52 +1,82 @@
-<nav class="navbar navbar-area navbar-expand-lg nav-style-01">
-    <div class="container nav-container">
-        <div class="responsive-mobile-menu">
-            <div class="logo-wrapper">
-                <a href="{{url('/')}}" class="logo">
-                    @if(file_exists('assets/uploads/'.get_static_option('site_logo')))
-                        <img src="{{asset('assets/uploads/'.get_static_option('site_logo'))}}" alt="site logo">
-                    @endif
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#zixer_main_menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="zixer_main_menu">
-            <ul class="navbar-nav">
+<!-- Main Header-->
+<header
+class="main-header">
 
-                @if(!empty($primary_menu->content))
-                    @php
-                        $cc = 0;
-                        $parent_item_count = 0;
-                       $menu_content = json_decode($primary_menu->content);
-                    @endphp
-                    @foreach($menu_content as $data)
-                        @php
-                            if ($cc > 0 && $cc == $parent_item_count){ print '</ul>'; $cc = 0; }
-                           if (!empty($data->parent_id) && $data->depth > 0){
-                                if  ($cc == 0){
-                                    print '<ul class="sub-menu">';
-                                    $parent_item_count = get_child_menu_count($menu_content,$data->parent_id);
-                                }else{  print '</li>'; }
-                            }else{ print '</li>'; }
-                        @endphp
-                        <li class="@if(request()->path() == substr($data->menuUrl,6)) current-menu-item @endif">
-                            @php $link = str_replace('[url]',url('/'),$data->menuUrl) @endphp
-                            <a href="{{$link}}">{{__($data->menuTitle)}}</a>
-                        @php if (!empty($data->parent_id) && $data->depth > 0){ $cc++;} @endphp
-                    @endforeach
-                @else
-                    <li class="@if(request()->path() == '/') current-menu-item @endif">
-                        <a  href="{{url('/')}}">{{__('Home')}}</a>
-                    </li>
-                @endif
-                @if(!empty(get_static_option('navbar_button')))
-                    <li class="navbar-btn-wrapper">
-                        <a class="boxed-btn" href="{{route('frontend.request.quote')}}">{{get_static_option("navbar_".get_user_lang()."_button_text")}}</a>
-                    </li>
-                @endif
-            </ul>
+<!--Header-Upper-->
+<div class="header-upper">
+    <div class="auto-container">
+        <div class="clearfix">
+
+            <div class="pull-left logo-box">
+                <div class="logo">
+                    <a href="{{url('/')}}">
+                        @if(file_exists('assets/uploads/'.get_static_option('site_logo')))
+                            <img src="{{asset('assets/uploads/'.get_static_option('site_logo'))}}" alt="site logo">
+                        @endif
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="nav-outer clearfix">
+
+                <!-- Main Menu -->
+                <nav class="main-menu navbar-expand-md">
+                    <div class="navbar-header">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                       @include('frontend.partials.navigation')
+                    </div>
+
+                </nav>
+
+            </div>
+
         </div>
     </div>
-</nav>
+</div>
+<!--End Header Upper-->
+
+<!--Sticky Header-->
+<div class="sticky-header">
+    <div
+        class="auto-container clearfix">
+        <!--Logo-->
+        <div class="logo pull-left">
+            <a href="{{url('/')}}">
+                @if(file_exists('assets/uploads/'.get_static_option('site_logo')))
+                    <img src="{{asset('assets/uploads/'.get_static_option('site_logo'))}}" alt="site logo">
+                @endif
+            </a>
+        </div>
+
+        <!--Right Col-->
+        <div
+            class="right-col pull-right">
+            <!-- Main Menu -->
+            <nav class="main-menu navbar-expand-md">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+                    @include('frontend.partials.navigation')
+                </div>
+            </nav>
+            <!-- Main Menu End-->
+        </div>
+
+    </div>
+</div>
+<!--End Sticky Header-->
+
+</header>
+<!--End Main Header -->

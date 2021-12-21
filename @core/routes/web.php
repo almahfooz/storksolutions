@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/cache-clear',function (){
-    Artisan::call('route:clear');
-    Artisan::call('view:clear');
-    Artisan::call('config:clear');
-    Artisan::call('cache:clear');
-});
+// Route::get('/cache-clear',function (){
+//     Artisan::call('route:clear');
+//     Artisan::call('view:clear');
+//     Artisan::call('config:clear');
+//     Artisan::call('cache:clear');
+// });
 
 Route::group(['middleware' => ['setlang','globalVariable']],function (){
     //frontend routes

@@ -43,11 +43,11 @@
     <div class="loader"></div>
 </div>
 <div class="page-container">
-    @if($license_status != 'verified' && env('APP_ENV') != 'development')
+    {{-- @if($license_status != 'verified' && env('APP_ENV') != 'development')
         <div class="license-alert-box">
             <div class="alert alert-info">{{$license_message}}</div>
         </div>
-    @endif
+    @endif --}}
     @include('backend/partials/sidebar')
     <div class="main-content">
         <!-- header area start -->

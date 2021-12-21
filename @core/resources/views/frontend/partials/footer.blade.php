@@ -1,167 +1,214 @@
-<footer class="footer-area footer-bg"
-@if(file_exists('assets/uploads/'.get_static_option('footer_background_image')))
-    style="background-image: url({{asset('assets/uploads/'.get_static_option('footer_background_image'))}})"
-@endif
->
+ <!--Main Footer-->
+ <footer class="main-footer">
+     <div class="auto-container">
+         <!--Widgets Section-->
+         <div class="widgets-section">
+             <div class="row clearfix">
 
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-widget about_widget">
-                        <div class="footer-logo">
-                            <a href="{{url('/')}}" class="footer-logo">
-                                @if(file_exists('assets/uploads/'.get_static_option('about_widget_logo')))
-                                    <img src="{{asset('assets/uploads/'.get_static_option('about_widget_logo'))}}" alt="">
-                                @endif
-                            </a>
-                        </div>
-                        <p>{{get_static_option('about_widget_'.get_user_lang().'_description')}}</p>
-                        <ul class="social-icons">
-                            @if(!empty(get_static_option('about_widget_social_icon_one')) && !empty(get_static_option('about_widget_social_icon_one_url')))
-                                <li><a href="{{get_static_option('about_widget_social_icon_one_url')}}"><i class="{{get_static_option('about_widget_social_icon_one')}}"></i></a></li>
-                            @endif
-                            @if(!empty(get_static_option('about_widget_social_icon_two')) && !empty(get_static_option('about_widget_social_icon_two_url')))
-                                <li><a href="{{get_static_option('about_widget_social_icon_two_url')}}"><i class="{{get_static_option('about_widget_social_icon_two')}}"></i></a></li>
-                            @endif
-                            @if(!empty(get_static_option('about_widget_social_icon_three')) && !empty(get_static_option('about_widget_social_icon_three_url')))
-                                <li><a href="{{get_static_option('about_widget_social_icon_three_url')}}"><i class="{{get_static_option('about_widget_social_icon_three')}}"></i></a></li>
-                            @endif
-                            @if(!empty(get_static_option('about_widget_social_icon_four')) && !empty(get_static_option('about_widget_social_icon_four_url')))
-                                <li><a href="{{get_static_option('about_widget_social_icon_four_url')}}"><i class="{{get_static_option('about_widget_social_icon_four')}}"></i></a></li>
-                            @endif
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget_nav_menu">
-                        <h2 class="widget-title">{{get_static_option('useful_link_'.get_user_lang().'_widget_title')}}</h2>
-                        <ul>
-                            @php $useful_links_arr = json_decode($all_usefull_links->content); @endphp
-                            @foreach($useful_links_arr as $data)
-                                @php $link = str_replace('[url]',url('/'),$data->menuUrl) @endphp
-                            <li><a href="{{$link}}">- {{__($data->menuTitle)}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget_nav_menu">
-                        <h2 class="widget-title">{{get_static_option('important_link_'.get_user_lang().'_widget_title')}}</h2>
-                        <ul>
-                            @php $useful_links_arr = json_decode($all_usefull_links->content); @endphp
-                            @foreach($useful_links_arr as $data)
-                                @php $link = str_replace('[url]',url('/'),$data->menuUrl) @endphp
-                                <li><a href="{{$link}}">- {{__($data->menuTitle)}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-widget widget_popular_posts">
-                        <h4 class="widget-title">{{get_static_option('recent_post_'.get_user_lang().'_widget_title')}}?</h4>
-                        <ul>
-                            @foreach($all_recent_post as $data)
-                                <li class="single-popular-post-item">
-                                    <div class="thumb">
-                                        @if(file_exists('assets/uploads/blog/blog-grid-'.$data->id.'.'.$data->image))
-                                            <img src="{{asset('assets/uploads/blog/blog-grid-'.$data->id.'.'.$data->image)}}" alt="{{$data->title}}">
-                                        @endif
-                                    </div>
-                                    <div class="content">
-                                        <span class="time"><i class="fa fa-calendar"></i> {{$data->created_at->diffForHumans()}}</span>
-                                        <h4 class="title"><a href="{{route('frontend.blog.single',['id' => $data->id, 'any' => Str::slug($data->title,'-')])}}">{{$data->title}}</a></h4>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                 <!--Column-->
+                 <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="row clearfix">
 
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-bottom-inner">
-                        <div class="copyright-area">
-                            <span class="copyright-text">
-                                 @php
-                                     $footer_text = get_static_option('site_footer_copyright');
-                                     $footer_text = str_replace('{copy}','&copy;',$footer_text);
-                                     $footer_text = str_replace('{year}',date('Y'),$footer_text);
-                                 @endphp
-                                {!! $footer_text !!}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+                         <!--Footer Column-->
+                         <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                             <div class="footer-widget logo-widget">
+                                 <div class="logo">
+                                     <a href="{{ url('/') }}">
+                                         @if (file_exists('assets/uploads/' . get_static_option('about_widget_logo')))
+                                             <img src="{{ asset('assets/uploads/' . get_static_option('about_widget_logo')) }}"
+                                                 alt="">
+                                         @endif
+                                     </a>
+                                 </div>
+                                 <div class="text">
+                                     {{ get_static_option('about_widget_' . get_user_lang() . '_description') }}</div>
+                                 <ul class="list-style-two">
+                                     @foreach ($all_support_item as $data)
+                                         <li><span class="icon {{ $data->icon }}"></span> {{ $data->details }}</li>
+                                     @endforeach
+                                 </ul>
+                             </div>
+                         </div>
 
+                         <!--Footer Column-->
+                         <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                             <div class="footer-widget links-widget">
+                                 <h4>{{ get_static_option('useful_link_' . get_user_lang() . '_widget_title') }}</h4>
+                                 <ul class="list-link">
+                                     @php $useful_links_arr = json_decode($all_usefull_links->content); @endphp
+                                     @foreach ($useful_links_arr as $data)
+                                         @php $link = str_replace('[url]',url('/'),$data->menuUrl) @endphp
+                                         <li><a href="{{ $link }}">- {{ __($data->menuTitle) }}</a></li>
+                                     @endforeach
+                                 </ul>
+                             </div>
+                         </div>
 
+                     </div>
+                 </div>
 
-<div class="preloader" id="preloader">
-    <div class="preloader-inner">
-        <div class="lds-ripple"><div></div><div></div></div>
-    </div>
-</div>
+                 <!--Column-->
+                 <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="row clearfix">
 
-<div class="back-to-top">
-    <i class="fas fa-angle-up"></i>
-</div>
+                         <!--Footer Column-->
+                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                             <div class="footer-widget links-widget">
+                                 <h4>{{ get_static_option('important_link_' . get_user_lang() . '_widget_title') }}</h4>
+                                 <ul class="list-link">
+                                     @php $useful_links_arr = json_decode($all_usefull_links->content); @endphp
+                                     @foreach ($useful_links_arr as $data)
+                                         @php $link = str_replace('[url]',url('/'),$data->menuUrl) @endphp
+                                         <li><a href="{{ $link }}">- {{ __($data->menuTitle) }}</a></li>
+                                     @endforeach
+                                 </ul>
+                             </div>
+                         </div>
 
-<!-- jquery -->
-<script src="{{asset('assets/frontend/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/jquery-migrate-3.1.0.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/jquery.magnific-popup.js')}}"></script>
-<script src="{{asset('assets/frontend/js/imagesloaded.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/isotope.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/jquery.waypoints.js')}}"></script>
-<script src="{{asset('assets/frontend/js/jquery.counterup.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/wow.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/main.js')}}"></script>
-<script>
-    (function($){
-        "use strict";
-        $(document).ready(function(){
-            $(document).on('change','#langchange',function(e){
-                $.ajax({
-                    url : "{{route('frontend.langchange')}}",
-                    type: "GET",
-                    data:{
-                        'lang' : $(this).val()
-                    },
-                    success:function (data) {
-                        location.reload();
-                    }
-                })
-            });
-        });
-    }(jQuery));
-</script>
-@yield('scripts')
+                         <!--Footer Column-->
+                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                             <div class="footer-widget gallery-widget">
+                                 <h4>Gallery</h4>
+                                 <div class="widget-content">
+                                     <div class="images-outer clearfix">
+                                         <!--Image Box-->
+                                         <figure class="image-box">
+                                             <a href="{{ asset('assets/frontend/finano/images/gallery/1.jpg') }}" class="lightbox-image"
+                                                 data-fancybox="footer-gallery" title="Image Title Here"
+                                                 data-fancybox-group="footer-gallery"><img
+                                                     src="{{ asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-1.jpg') }}" alt=""></a>
+                                         </figure>
+                                         <!--Image Box-->
+                                         <figure class="image-box">
+                                             <a href="{{ asset('assets/frontend/finano/images/gallery/2.jpg') }}" class="lightbox-image"
+                                                 data-fancybox="footer-gallery" title="Image Title Here"
+                                                 data-fancybox-group="footer-gallery"><img
+                                                     src="{{ asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-2.jpg') }}" alt=""></a>
+                                         </figure>
+                                         <!--Image Box-->
+                                         <figure class="image-box">
+                                             <a href="{{ asset('assets/frontend/finano/images/gallery/3.jpg') }}" class="lightbox-image"
+                                                 data-fancybox="footer-gallery" title="Image Title Here"
+                                                 data-fancybox-group="footer-gallery"><img
+                                                     src="{{ asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-3.jpg') }}" alt=""></a>
+                                         </figure>
+                                         <!--Image Box-->
+                                         <figure class="image-box">
+                                             <a href="{{ asset('assets/frontend/finano/images/gallery/4.jpg') }}" class="lightbox-image"
+                                                 data-fancybox="footer-gallery" title="Image Title Here"
+                                                 data-fancybox-group="footer-gallery"><img
+                                                     src="{{ asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-4.jpg') }}" alt=""></a>
+                                         </figure>
+                                         <!--Image Box-->
+                                         <figure class="image-box">
+                                             <a href="{{ asset('assets/frontend/finano/images/gallery/5.jpg') }}" class="lightbox-image"
+                                                 data-fancybox="footer-gallery" title="Image Title Here"
+                                                 data-fancybox-group="footer-gallery"><img
+                                                     src="{{ asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-5.jpg') }}" alt=""></a>
+                                         </figure>
+                                         <!--Image Box-->
+                                         <figure class="image-box">
+                                             <a href="{{ asset('assets/frontend/finano/images/gallery/6.jpg') }}" class="lightbox-image"
+                                                 data-fancybox="footer-gallery" title="Image Title Here"
+                                                 data-fancybox-group="footer-gallery"><img
+                                                     src="{{ asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-6.jpg') }}" alt=""></a>
+                                         </figure>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src="https://embed.tawk.to/{{get_static_option('tawk_api_key')}}/default";
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+                     </div>
+                 </div>
 
-</body>
+             </div>
+         </div>
+     </div>
+     <!-- Footer Bottom -->
+     <div class="footer-bottom">
+         <div class="auto-container">
+             <div class="row clearfix">
 
-</html>
+                 <!-- Copyright Column -->
+                 <div class="copyright-column col-lg-6 col-md-6 col-sm-12">
+                     <div class="copyright">@php
+                         $footer_text = get_static_option('site_footer_copyright');
+                         $footer_text = str_replace('{copy}', '&copy;', $footer_text);
+                         $footer_text = str_replace('{year}', date('Y'), $footer_text);
+                     @endphp
+                         {!! $footer_text !!}
+                     </div>
+                 </div>
+
+                 <!-- Social Column -->
+                 <div class="social-column col-lg-6 col-md-6 col-sm-12">
+                     <ul>
+                         <li class="follow">Follow us:</li>
+                         @if (!empty(get_static_option('about_widget_social_icon_one')) && !empty(get_static_option('about_widget_social_icon_one_url')))
+                             <li><a href="{{ get_static_option('about_widget_social_icon_one_url') }}"><span
+                                         class="{{ get_static_option('about_widget_social_icon_one') }}"></span></a>
+                             </li>
+                         @endif
+                         @if (!empty(get_static_option('about_widget_social_icon_two')) && !empty(get_static_option('about_widget_social_icon_two_url')))
+                             <li><a href="{{ get_static_option('about_widget_social_icon_two_url') }}"><span
+                                         class="{{ get_static_option('about_widget_social_icon_two') }}"></span></a>
+                             </li>
+                         @endif
+                         @if (!empty(get_static_option('about_widget_social_icon_three')) && !empty(get_static_option('about_widget_social_icon_three_url')))
+                             <li><a href="{{ get_static_option('about_widget_social_icon_three_url') }}"><span
+                                         class="{{ get_static_option('about_widget_social_icon_three') }}"></span></a>
+                             </li>
+                         @endif
+                         @if (!empty(get_static_option('about_widget_social_icon_four')) && !empty(get_static_option('about_widget_social_icon_four_url')))
+                             <li><a href="{{ get_static_option('about_widget_social_icon_four_url') }}"><span
+                                         class="{{ get_static_option('about_widget_social_icon_four') }}"></span></a>
+                             </li>
+                         @endif
+                     </ul>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </footer>
+
+ </div>
+ <!--End pagewrapper-->
+
+ <script src="{{ asset('assets/frontend/finano/js/jquery.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/popper.min.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/bootstrap.min.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/jquery.fancybox.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/appear.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/owl.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/wow.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/isotope.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/jquery-ui.js') }}"></script>
+ <script src="{{ asset('assets/frontend/finano/js/main.js') }}"></script>
+ <!--Google Map APi Key-->
+ <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
+ <script src="{{ asset('assets/frontend/finano/js/map-script.js') }}"></script>
+ <!--End Google Map APi-->
+
+ @yield('scripts')
+
+ <!--Start of Tawk.to Script-->
+ <script type="text/javascript">
+     var Tawk_API = Tawk_API || {},
+         Tawk_LoadStart = new Date();
+     (function() {
+         var s1 = document.createElement("script"),
+             s0 = document.getElementsByTagName("script")[0];
+         s1.async = true;
+         s1.src = "https://embed.tawk.to/{{ get_static_option('tawk_api_key') }}/default";
+         s1.charset = 'UTF-8';
+         s1.setAttribute('crossorigin', '*');
+         s0.parentNode.insertBefore(s1, s0);
+     })();
+ </script>
+ <!--End of Tawk.to Script-->
+
+ </body>
+
+ </html>
