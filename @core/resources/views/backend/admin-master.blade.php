@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{asset('assets/backend/css/custom-style.css')}}">
     @yield('style')
     <!-- modernizr css -->
-    <script src="{{asset('assets/common/vendor/modernizr-2.8.3.min.js')}}"></script>
+    <script src="{{asset('assets/common/js/modernizr-2.8.3.min.js')}}"></script>
 </head>
 
 <body>
@@ -131,7 +131,7 @@
     </footer>
 
 </div>
-<script src="{{asset('assets/common/vendor/jquery-2.2.4.min.js')}}"></script>
+<script src="{{asset('assets/common/js/jquery-2.2.4.min.js')}}"></script>
 <script src="{{asset('assets/common/js/popper.min.js')}}"></script>
 <script src="{{asset('assets/common/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/backend/js/metisMenu.min.js')}}"></script>

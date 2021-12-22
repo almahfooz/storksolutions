@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="{{asset('assets/backend/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/css/responsive.css')}}">
     <!-- modernizr css -->
-    <script src="{{asset('assets/common/vendor/modernizr-2.8.3.min.js')}}"></script>
+    <script src="{{asset('assets/common/js/modernizr-2.8.3.min.js')}}"></script>
 </head>
 
 <body>
     @yield('content')
 
     <!-- jquery latest version -->
-    <script src="{{asset('assets/common/vendor/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('assets/common/js/jquery-2.2.4.min.js')}}"></script>
     <!-- bootstrap 4 js -->
     <script src="{{asset('assets/common/js/popper.min.js')}}"></script>
     <script src="{{asset('assets/common/js/bootstrap.min.js')}}"></script>
