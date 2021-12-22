@@ -17,42 +17,47 @@
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
-    <div class="work-details-content-area">
-        <div class="container">
+    <div class="sidebar-page-container">
+        <div class="auto-container">
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="work-details-inner-area">
-                        <div class="thumb">
-                            <?php $img_url = '';?>
-                            <?php if(file_exists('assets/uploads/works/work-large-'.$work_item->id.'.'.$work_item->image)): ?>
-                                <img  src="<?php echo e(asset('assets/uploads/works/work-large-'.$work_item->id.'.'.$work_item->image)); ?>" alt="<?php echo e($work_item->title); ?>">
-                                <?php $img_url = asset('assets/uploads/works/work-large-'.$work_item->id.'.'.$work_item->image);?>
-                            <?php endif; ?>
-                        </div>
-                        <h2 class="title"><?php echo e($work_item->title); ?></h2>
-                        <div class="post-description">
-                            <?php echo $work_item->description; ?>
+                <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                    <div class="blog-single">
+                        <div class="inner-box">
+                            <div class="image">
+                                <?php $img_url = '';?>
+                                <?php if(file_exists('assets/uploads/works/work-large-'.$work_item->id.'.'.$work_item->image)): ?>
+                                    <img  src="<?php echo e(asset('assets/uploads/works/work-large-'.$work_item->id.'.'.$work_item->image)); ?>" alt="<?php echo e($work_item->title); ?>">
+                                    <?php $img_url = asset('assets/uploads/works/work-large-'.$work_item->id.'.'.$work_item->image);?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="lower-content">
+                                <h4><?php echo e($work_item->title); ?></h4>
+                                <div class="text">
+                                    <?php echo $work_item->description; ?>
 
+                                </div>
+                            </div>
                         </div>
+                        <div class="post-share-options">
+							<div class="post-share-inner clearfix">
+								<div class="pull-left post-tags"></div>
+								<ul class="pull-right social-links clearfix">
+                                    <?php echo single_post_share(route('frontend.work.single',['id' => $work_item->id,'any' => Str::slug($work_item->title)]),$work_item->title,$img_url); ?>
+
+								</ul>
+							</div>
+						</div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="project-details">
-                        <h4 class="title"><?php echo e(__('Project Details')); ?></h4>
-                        <ul class="details-list">
-                            <li><strong><?php echo e(__('Start Date:')); ?></strong><?php echo e($work_item->start_date); ?> </li>
-                            <li><strong><?php echo e(__('End Date:')); ?></strong> <?php echo e($work_item->end_date); ?></li>
-                            <li><strong><?php echo e(__('Location:')); ?></strong> <?php echo e($work_item->location); ?></li>
-                            <li><strong><?php echo e(__('Clients:')); ?></strong> <?php echo e($work_item->clients); ?></li>
-                            <li><strong><?php echo e(__('Category:')); ?></strong> <?php echo e(get_work_category_by_id($work_item->id,'string')); ?></li>
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                    <div class="sidebar-widget sidebar-blog-category">
+                        <ul class="blog-cat-two">
+                            <li><a><?php echo e(__('Start Date:')); ?> <span><?php echo e($work_item->start_date); ?> </span></a></li>
+                            <li><a><?php echo e(__('End Date:')); ?> <span> <?php echo e($work_item->end_date); ?></span></a></li>
+                            <li><a><?php echo e(__('Location:')); ?> <span> <?php echo e($work_item->location); ?></span></a></li>
+                            <li><a><?php echo e(__('Clients:')); ?> <span> <?php echo e($work_item->clients); ?></span></a></li>
+                            <li><a><?php echo e(__('Category:')); ?> <span> <?php echo e(get_work_category_by_id($work_item->id,'string')); ?></span></a></li>
                         </ul>
-                        <div class="share-area">
-                            <h4 class="title"><?php echo e(__('Share')); ?></h4>
-                            <ul class="share-icon">
-                                <?php echo single_post_share(route('frontend.work.single',['id' => $work_item->id,'any' => Str::slug($work_item->title)]),$work_item->title,$img_url); ?>
-
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

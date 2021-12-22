@@ -1,6 +1,10 @@
 <!-- Main Header-->
 <header
-class="main-header">
+class="main-header @if($secondary) header-style-five five-alternate @endif">
+
+@if ($secondary)
+    @include('frontend.partials.header_top')
+@endif
 
 <!--Header-Upper-->
 <div class="header-upper">

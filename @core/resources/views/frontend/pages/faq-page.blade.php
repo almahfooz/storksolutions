@@ -6,7 +6,7 @@
     {{__('Faq')}}
 @endsection
 @section('content')
-    <div class="faq-page-content-area">
+    {{-- <div class="faq-page-content-area">
         <div class="container">
             <div class="row">
                 @foreach($all_faqs->chunk(5) as $chunked_faq)
@@ -43,64 +43,80 @@
                 @endforeach
             </div>
         </div>
-    </div>
-    <section class="testimonial-area gray-bg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2 class="title">{{get_static_option('home_page_01_'.get_user_lang().'_testimonial_title')}}</h2>
-                        <div class="separator">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+    </div> --}}
+
+    <!-- Faq Section -->
+	<section class="faq-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+				@foreach($all_faqs->chunk(5) as $chunked_faq)
+				<!-- Faq Column -->
+				<div class="faq-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						
+						<!--Accordion Box-->
+						<ul class="accordion-box">
+                            @foreach($chunked_faq as $key => $data)
+
+                                <!--Block-->
+							<li class="accordion block">
+								<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-arrow-right"></span> <span class="icon icon-minus fa fa-arrow-down"></span></div> <span class="icon-inner flaticon-up-arrow-1"></span>{{$data->title}} <span class="arrow fa fa-angle-right"></span></div>
+								<div class="acc-content">
+									<div class="content">
+										<p>{{$data->description}}</p>
+									</div>
+								</div>
+							</li>
+
+							@endforeach
+						</ul>
+						
+					</div>
+				</div>
+
+                @endforeach
+			</div>
+		</div>
+	</section>
+	<!-- End Faq Section -->
+
+    <section class="business-section full-width">
+        <div class="contents-column">
+            <!-- Testimonial Boxed -->
+            <div class="testimonial-boxed" style="background-image:url({{ asset('assets/frontend/finano/images/resource/image-2.jpeg') }})">
+                <div class="inner-boxed">
+                    <div class="inner-content">
+                        <h2>{{get_static_option('home_page_01_'.get_user_lang().'_testimonial_title')}}</h2>
+                        <div class="single-item-carousel owl-carousel owl-theme">
+        
+                            @foreach($all_testimonial as $key => $data)
+                                    <!-- Testimonial Block Two -->
+                                    <div class="testimonial-block-two">
+                                        <div class="inner-box">
+                                            <div class="content-box">
+                                                <div class="text">{{$data->description}}</div>
+                                            </div>
+                                            <div class="lower-box">
+                                                <div class="lower-inner">
+                                                    <div class="image">
+                                                        @if(file_exists('assets/uploads/testimonial/testimonial-grid-'.$data->id.'.'.$data->image))
+                                                            <img src="{{asset('assets/uploads/testimonial/testimonial-grid-'.$data->id.'.'.$data->image)}}" alt="{{__($data->name)}}">
+                                                        @endif
+                                                    </div>
+                                                    <h3>{{ $data->name }}</h3>
+                                                    <div class="designation">{{ $data->designation }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-between">
-                <div class="col-lg-6">
-                    <div class="testimonial-carousel">
-                        @foreach($all_testimonial as $data)
-                            <div class="single-tesitmoial-item">
-                                <div class="thumb">
-                                    @if(file_exists('assets/uploads/testimonial/testimonial-grid-'.$data->id.'.'.$data->image))
-                                        <img src="{{asset('assets/uploads/testimonial/testimonial-grid-'.$data->id.'.'.$data->image)}}" alt="{{__($data->name)}}">
-                                    @endif
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="right-content-area">
-                        @foreach($all_testimonial as $key => $data)
-                            <div class="single-testimonial-quote @if($key == 0) active @endif" data-owl-item="{{$key}}">
-                                <p>{{$data->description}}</p>
-                                <h4 class="title">{{$data->name}}</h4>
-                                <span class="post">{{$data->designation}}</span>
-                            </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="brand-carousel-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="brand-carousel">
-                        @foreach($all_brand_logo as $data)
-                            <div class="single-brand-item">
-                                @if(file_exists('assets/uploads/brands/brand-image-'.$data->id.'.'.$data->image))
-                                    <img src="{{asset('assets/uploads/brands/brand-image-'.$data->id.'.'.$data->image)}}" alt="{{$data->title}}">
-                                @endif
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+   
+    @include('frontend.partials.brand_logos')
 @endsection

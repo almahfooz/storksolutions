@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <?php echo $__env->make('frontend.partials.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('frontend.partials.navbar', ['secondary' => false], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!--Main Slider-->
     <section class="main-slider"
         style="background-image:url(<?php echo e(asset('assets/frontend/finano/images/background/1.png')); ?>)">
@@ -61,7 +61,6 @@
                         <div class="text"><?php echo e($data->description); ?>
 
                         </div>
-                        
                     </div>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -108,7 +107,6 @@
                                     <img src="<?php echo e(asset('assets/uploads/'.get_static_option('home_page_01_'.get_user_lang().'_build_dream_right_image'))); ?>" alt="">
                                 <?php endif; ?>
                             </figure>
-                            
                         </div>
 
                     </div>
@@ -154,88 +152,13 @@
 <?php endif; ?>
 
 <?php if(!empty(get_static_option('home_page_counterup_section_status'))): ?>
+    <?php echo $__env->make('frontend.partials.counterup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<!-- Counter Section -->
-<section class="counter-section" 
-<?php if(file_exists('assets/uploads/'.get_static_option('home_01_counterup_bg_image'))): ?>
-    style="background-image: url(<?php echo e(asset('assets/uploads/'.get_static_option('home_01_counterup_bg_image'))); ?>)"
-<?php endif; ?>
->
-    <div class="auto-container">
-        <!-- Fact Counter -->
-        <div class="fact-counter style-three">
-            <div class="row clearfix">
-                <?php $__currentLoopData = $all_counterup; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <!--Column-->
-                <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-                    <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="icon-box">
-                            <span class="icon <?php echo e($data->icon); ?>"></span>
-                        </div>
-                        <div class="count-outer count-box">
-                            <span class="count-text" data-speed="3000ms" data-stop="1200"><?php echo e($data->number); ?></span>+
-                            <div class="counter-title"><?php echo e($data->title); ?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                
-            </div>
-        </div>
-        
-    </div>
-</section>
-<!-- Counter Section -->
 <?php endif; ?>
 
 
 <?php if(!empty(get_static_option('home_page_recent_work_section_status'))): ?>
-<section class="services-section-ten sortable-masonry">
-    <div class="auto-container">
-        <div class="row">
-            <div class="title-column col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <!-- Sec Title -->
-                    <div class="sec-title">
-                        <h2><?php echo e(get_static_option('home_page_01_'.get_user_lang().'_recent_work_title')); ?></h2>
-                    </div>
-    
-                    <div class="recent-work-nav-area">
-                        <ul class="filter-btns">
-                            <li class="active" data-filter="*"><?php echo e(__('All work')); ?></li>
-                            <?php $__currentLoopData = $all_work_category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <li data-filter=".<?php echo e(Str::slug($data->name)); ?>"><?php echo e($data->name); ?></li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-12 col-sm-12">
-                <div class="items-container">
-                    <?php $__currentLoopData = $all_work; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="masonry-item col-lg-4 recent-work-item col-md-6 <?php echo e(get_work_category_by_id($data->id,'slug')); ?>">
-                        <div class="thumb">
-                            <?php $img_url = '';?>
-                            <?php if(file_exists('assets/uploads/works/work-grid-'.$data->id.'.'.$data->image)): ?>
-                                <img src="<?php echo e(asset('assets/uploads/works/work-grid-'.$data->id.'.'.$data->image)); ?>" alt="<?php echo e($data->title); ?>">
-                                <?php $img_url = asset('assets/uploads/works/work-large-'.$data->id.'.'.$data->image);?>
-                            <?php endif; ?>
-                            <div class="hover">
-                                <ul>
-                                    <li><a href="<?php echo e($img_url); ?>" class="lightbox-image" data-fancybox="recent-work-gallery" title="<?php echo e($data->title); ?>"
-                                        data-fancybox-group="recent-work-gallery"> <i class="flaticon-image"></i> </a></li>
-                                    <li><a href="<?php echo e(route('frontend.work.single',['id' => $data->id,'any' => Str::slug($data->title)])); ?>"> <i class="flaticon-link-symbol"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <?php echo $__env->make('frontend.partials.recent_projects', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php endif; ?>
 
 <?php if(!empty(get_static_option('home_page_latest_news_section_status'))): ?>
@@ -289,32 +212,7 @@
 <?php endif; ?>
 
 <?php if(!empty(get_static_option('home_page_brand_logo_section_status'))): ?>
-    <!--Sponsors Section-->
-    <section class="sponsors-section">
-        <div class="auto-container">
-    
-            <div class="carousel-outer">
-                <!--Sponsors Slider-->
-                <ul class="sponsors-carousel owl-carousel owl-theme">
-                    <?php $__currentLoopData = $all_brand_logo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="single-brand-item">
-                            </div>
-                            <li>
-                                <div class="image-box">
-                                    <a href="javascript:void(0)">
-                                        <?php if(file_exists('assets/uploads/brands/brand-image-'.$data->id.'.'.$data->image)): ?>
-                                            <img src="<?php echo e(asset('assets/uploads/brands/brand-image-'.$data->id.'.'.$data->image)); ?>" alt="<?php echo e($data->title); ?>">
-                                        <?php endif; ?>
-                                    </a>
-                                </div>
-                            </li>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </ul>
-            </div>
-    
-        </div>
-    </section>
-    <!--End Sponsors Section-->
+    <?php echo $__env->make('frontend.partials.brand_logos', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php endif; ?>
 
 

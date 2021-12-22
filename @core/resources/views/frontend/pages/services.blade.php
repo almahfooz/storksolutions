@@ -3,8 +3,8 @@
     {{__('Service Category: ').$category_name}}
 @endsection
 @section('content')
-    <section class="blog-content-area padding-100">
-        <div class="container">
+    <section class="services-section-ten style-two">
+        <div class="auto-container">
             <div class="row">
                 @if(empty($service_items))
                     <div class="col-lg-12">
@@ -12,22 +12,23 @@
                     </div>
                 @endif
                 @foreach($service_items as $data)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-service-item-three">
-                            <div class="thumb">
+                    <!-- Services Block Fifteen -->
+                    <div class="services-block-fifteen col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box wow bounceIn" data-wow-delay="600ms" data-wow-duration="1500ms">
+                            <div class="image">
                                 @if(file_exists('assets/uploads/services/service-grid-'.$data->id.'.'.$data->image))
                                     <img src="{{asset('assets/uploads/services/service-grid-'.$data->id.'.'.$data->image)}}" alt="{{$data->title}}">
+                                    <div class="overlay-box">
+                                        <a href="{{asset('assets/uploads/services/service-grid-'.$data->id.'.'.$data->image)}}" data-fancybox="service-2" data-caption="" class="plus flaticon-plus-symbol"></a>
+                                    </div>
                                 @endif
-                                <div class="icon">
-                                    <i class="{{$data->icon}}"></i>
-                                </div>
                             </div>
-                            <div class="content">
-                                <h4 class="title"><a href="{{route('frontend.services.single',['id' => $data->id,'any' => Str::slug($data->title)])}}">{{$data->title}}</a></h4>
-                                <div class="description">
-                                    {!! Str::words($data->description,15) !!}
+                            <div class="lower-content">
+                                <div class="upper-box">
+                                    <div class="icon {{$data->icon}}"></div>
+                                    <h5><a href="{{route('frontend.services.single',['id' => $data->id,'any' => Str::slug($data->title)])}}">{{$data->title}}</a></h5>
                                 </div>
-                                <a href="{{route('frontend.services.single',['id' => $data->id,'any' => Str::slug($data->title)])}}" class="readmore">{{__('Read More')}}</a>
+                                <div class="text">{!! Str::words($data->description,15) !!}</div>
                             </div>
                         </div>
                     </div>

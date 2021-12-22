@@ -16,57 +16,60 @@
     {{$blog_post->title}}
 @endsection
 @section('content')
-    <section class="blog-details-content-area padding-100 ">
-        <div class="container">
+    <section class="sidebar-page-container">
+        <div class="auto-container">
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="single-post-details-item">
-                        <div class="thumb">
-
-                            @if(file_exists('assets/uploads/blog/blog-large-'.$blog_post->id.'.'.$blog_post->image))
-                                <img src="{{asset('assets/uploads/blog/blog-large-'.$blog_post->id.'.'.$blog_post->image)}}" alt="{{$blog_post->title}}">
-                                @php $post_img = asset('assets/uploads/blog/blog-large-'.$blog_post->id.'.'.$blog_post->image); @endphp
-                            @endif
+                <div class="col-lg-8 content-side">
+                    <div class="blog-single">
+                        <div class="inner-box">
+                            <div class="image">
+    
+                                @if(file_exists('assets/uploads/blog/blog-large-'.$blog_post->id.'.'.$blog_post->image))
+                                    <img src="{{asset('assets/uploads/blog/blog-large-'.$blog_post->id.'.'.$blog_post->image)}}" alt="{{$blog_post->title}}">
+                                    @php $post_img = asset('assets/uploads/blog/blog-large-'.$blog_post->id.'.'.$blog_post->image); @endphp
+                                @endif
+                            </div>
+                            <div class="lower-content">
+                                <div class="entry-content">
+                                    <ul class="post-meta">
+                                        <li><i class="fa fa-calendar"></i> {{ $blog_post->created_at->diffForHumans()}}</li>
+                                        <li><i class="fa fa-user"></i> {{ $blog_post->user->name}}</li>
+                                        <li>
+                                            <div class="cats">
+                                                <i class="fa fa-calendar"></i>
+                                                <a href="{{route('frontend.blog.category',['id' => $blog_post->category->id,'any'=> Str::slug($blog_post->category->name,'-')])}}"> {{$blog_post->category->name}}</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <h4>{{$blog_post->title}}</h4>
+                                   <div class="text">
+                                       {!! $blog_post->content !!}
+                                   </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="entry-content">
-                            <ul class="post-meta">
-                                <li><i class="fa fa-calendar"></i> {{ $blog_post->created_at->diffForHumans()}}</li>
-                                <li><i class="fa fa-user"></i> {{ $blog_post->user->name}}</li>
-                                <li>
-                                    <div class="cats">
-                                        <i class="fa fa-calendar"></i>
-                                        <a href="{{route('frontend.blog.category',['id' => $blog_post->category->id,'any'=> Str::slug($blog_post->category->name,'-')])}}"> {{$blog_post->category->name}}</a>
-                                    </div>
-                                </li>
-                            </ul>
-                           <div class="content-area">
-                               {!! $blog_post->content !!}
-                           </div>
-                        </div>
-                        <div class="entry-footer"><!-- entry footer -->
-                            <div class="left">
-                                <ul class="tags">
-                                    <li class="title">{{__('Tags:')}}</li>
+                        
+                        <!--post-share-options-->
+						<div class="post-share-options">
+							<div class="post-share-inner clearfix">
+								<div class="pull-left post-tags"><span>Tags: </span>
                                     @php
-                                        $all_tags = explode(',',$blog_post->tags);
-                                    @endphp
-                                    @foreach($all_tags as $tag)
-                                        <li>{{$tag}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <div class="right">
-                                <ul class="social-share">
-                                    <li class="title">{{__('Share:')}}</li>
-                                    {!! single_post_share(route('frontend.blog.single',['id' => $blog_post->id, 'any' => Str::slug($blog_post->title,'-')]),$blog_post->title,$post_img) !!}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                                    $all_tags = explode(',',$blog_post->tags);
+                                @endphp
+                                @foreach($all_tags as $tag)
+                                    <a href="javascript:void(0)">{{$tag}}</a>
+                                @endforeach
+                                </div>
+								<ul class="pull-right social-links clearfix">
+									{!! single_post_share(route('frontend.blog.single',['id' => $blog_post->id, 'any' => Str::slug($blog_post->title,'-')]),$blog_post->title,$post_img) !!}
+								</ul>
+							</div>
+						</div>
 
-                    <div class="disqus-comment-area">
-                        <div id="disqus_thread"></div>
-                    </div>
+                        <div class="disqus-comment-area">
+                            <div id="disqus_thread"></div>
+                        </div>
+                        </div>
                 </div>
                 <div class="col-lg-4">
                    @include('frontend.partials.sidebar')

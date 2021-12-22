@@ -1,6 +1,10 @@
 <!-- Main Header-->
 <header
-class="main-header">
+class="main-header <?php if($secondary): ?> header-style-five five-alternate <?php endif; ?>">
+
+<?php if($secondary): ?>
+    <?php echo $__env->make('frontend.partials.header_top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php endif; ?>
 
 <!--Header-Upper-->
 <div class="header-upper">

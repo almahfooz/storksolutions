@@ -1,7 +1,7 @@
 @extends('frontend.frontend-master')
 
 @section('content')
-    @include('frontend.partials.navbar')
+    @include('frontend.partials.navbar', ['secondary' => false])
     <!--Main Slider-->
     <section class="main-slider"
         style="background-image:url({{ asset('assets/frontend/finano/images/background/1.png') }})">
@@ -59,9 +59,6 @@
                         </h5>
                         <div class="text">{{ $data->description }}
                         </div>
-                        {{-- <a class="plus-box" href="services-single.html">View<span
-                                class="plus flaticon-plus-symbol"></span>
-                        </a> --}}
                     </div>
                 </div>
             @endforeach
@@ -107,9 +104,6 @@
                                     <img src="{{asset('assets/uploads/'.get_static_option('home_page_01_'.get_user_lang().'_build_dream_right_image'))}}" alt="">
                                 @endif
                             </figure>
-                            {{-- <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image overlay-box">
-                                <span class="flaticon-play-button"></span>
-                            </a> --}}
                         </div>
 
                     </div>
@@ -155,88 +149,13 @@
 @endif
 
 @if(!empty(get_static_option('home_page_counterup_section_status')))
+    @include('frontend.partials.counterup')
 
-<!-- Counter Section -->
-<section class="counter-section" 
-@if(file_exists('assets/uploads/'.get_static_option('home_01_counterup_bg_image')))
-    style="background-image: url({{asset('assets/uploads/'.get_static_option('home_01_counterup_bg_image'))}})"
-@endif
->
-    <div class="auto-container">
-        <!-- Fact Counter -->
-        <div class="fact-counter style-three">
-            <div class="row clearfix">
-                @foreach($all_counterup as $data)
-                <!--Column-->
-                <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-                    <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="icon-box">
-                            <span class="icon {{ $data->icon }}"></span>
-                        </div>
-                        <div class="count-outer count-box">
-                            <span class="count-text" data-speed="3000ms" data-stop="1200">{{ $data->number }}</span>+
-                            <div class="counter-title">{{ $data->title }}</div>
-                        </div>
-                    </div>
-                </div>
-
-                @endforeach
-                
-            </div>
-        </div>
-        
-    </div>
-</section>
-<!-- Counter Section -->
 @endif
 
 
 @if(!empty(get_static_option('home_page_recent_work_section_status')))
-<section class="services-section-ten sortable-masonry">
-    <div class="auto-container">
-        <div class="row">
-            <div class="title-column col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <!-- Sec Title -->
-                    <div class="sec-title">
-                        <h2>{{get_static_option('home_page_01_'.get_user_lang().'_recent_work_title')}}</h2>
-                    </div>
-    
-                    <div class="recent-work-nav-area">
-                        <ul class="filter-btns">
-                            <li class="active" data-filter="*">{{__('All work')}}</li>
-                            @foreach($all_work_category as $data)
-                            <li data-filter=".{{Str::slug($data->name)}}">{{$data->name}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-12 col-sm-12">
-                <div class="items-container">
-                    @foreach($all_work as $data)
-                    <div class="masonry-item col-lg-4 recent-work-item col-md-6 {{get_work_category_by_id($data->id,'slug')}}">
-                        <div class="thumb">
-                            @php $img_url = '';@endphp
-                            @if(file_exists('assets/uploads/works/work-grid-'.$data->id.'.'.$data->image))
-                                <img src="{{asset('assets/uploads/works/work-grid-'.$data->id.'.'.$data->image)}}" alt="{{$data->title}}">
-                                @php $img_url = asset('assets/uploads/works/work-large-'.$data->id.'.'.$data->image);@endphp
-                            @endif
-                            <div class="hover">
-                                <ul>
-                                    <li><a href="{{$img_url}}" class="lightbox-image" data-fancybox="recent-work-gallery" title="{{ $data->title }}"
-                                        data-fancybox-group="recent-work-gallery"> <i class="flaticon-image"></i> </a></li>
-                                    <li><a href="{{route('frontend.work.single',['id' => $data->id,'any' => Str::slug($data->title)])}}"> <i class="flaticon-link-symbol"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    @include('frontend.partials.recent_projects')
 @endif
 
 @if(!empty(get_static_option('home_page_latest_news_section_status')))
@@ -290,32 +209,7 @@
 @endif
 
 @if(!empty(get_static_option('home_page_brand_logo_section_status')))
-    <!--Sponsors Section-->
-    <section class="sponsors-section">
-        <div class="auto-container">
-    
-            <div class="carousel-outer">
-                <!--Sponsors Slider-->
-                <ul class="sponsors-carousel owl-carousel owl-theme">
-                    @foreach($all_brand_logo as $data)
-                            <div class="single-brand-item">
-                            </div>
-                            <li>
-                                <div class="image-box">
-                                    <a href="javascript:void(0)">
-                                        @if(file_exists('assets/uploads/brands/brand-image-'.$data->id.'.'.$data->image))
-                                            <img src="{{asset('assets/uploads/brands/brand-image-'.$data->id.'.'.$data->image)}}" alt="{{$data->title}}">
-                                        @endif
-                                    </a>
-                                </div>
-                            </li>
-                        @endforeach
-                </ul>
-            </div>
-    
-        </div>
-    </section>
-    <!--End Sponsors Section-->
+    @include('frontend.partials.brand_logos')
 @endif
 
 
