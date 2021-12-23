@@ -39,13 +39,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="start_date">Start Date</label>
-                                        <input type="text" id="start_date" name="start_date" class="form-control" required>
+                                        <input type="date" id="start_date" name="start_date" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="end_date">End Date</label>
-                                        <input type="text" id="end_date" name="end_date" class="form-control" required>
+                                        <input type="date" id="end_date" name="end_date" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -78,8 +78,8 @@
                                 <td>{{ $course->id }}</td>
                                 <td>{{ $course->name }}</td>
                                 <td>{{ $course->students()->count() }}</td>
-                                <td>{{ $course->start_date }}</td>
-                                <td>{{ $course->end_date }}</td>
+                                <td>{{ $course->from() }}</td>
+                                <td>{{ $course->to() }}</td>
                                 <td>
                                     <a href="{{ route('admin.courses.show', $course->id) }}" class="btn btn-sm btn-info">View</a>
                                 </td>
