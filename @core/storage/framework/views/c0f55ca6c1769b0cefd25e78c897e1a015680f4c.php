@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/backend/css/custom-style.css')); ?>">
     <?php echo $__env->yieldContent('style'); ?>
     <!-- modernizr css -->
-    <script src="<?php echo e(asset('assets/common/vendor/modernizr-2.8.3.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/common/js/modernizr-2.8.3.min.js')); ?>"></script>
 </head>
 
 <body>
@@ -130,7 +130,7 @@
     </footer>
 
 </div>
-<script src="<?php echo e(asset('assets/common/vendor/jquery-2.2.4.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/common/js/jquery-2.2.4.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/common/js/popper.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/common/js/bootstrap.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/backend/js/metisMenu.min.js')); ?>"></script>

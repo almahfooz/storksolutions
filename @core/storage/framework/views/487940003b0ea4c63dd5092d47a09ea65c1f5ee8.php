@@ -310,6 +310,11 @@
                             <a href="<?php echo e(route('admin.languages')); ?>" aria-expanded="true"><i class="ti-signal"></i> <span><?php echo e(__('Languages')); ?></span></a>
                         </li>
                     <?php endif; ?>
+                     <?php if('super_admin' == auth()->user()->role ): ?>
+                     <li class="<?php if(request()->is('admin-home/courses*')): ?> active <?php endif; ?>">
+                        <a href="<?php echo e(route('admin.courses.index')); ?>" aria-expanded="true"><i class="ti-book"></i> <span><?php echo e(__('Courses')); ?></span></a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </div>

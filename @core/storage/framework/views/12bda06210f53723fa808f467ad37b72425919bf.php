@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/backend/css/styles.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/backend/css/responsive.css')); ?>">
     <!-- modernizr css -->
-    <script src="<?php echo e(asset('assets/common/vendor/modernizr-2.8.3.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/common/js/modernizr-2.8.3.min.js')); ?>"></script>
 </head>
 
 <body>
     <?php echo $__env->yieldContent('content'); ?>
 
     <!-- jquery latest version -->
-    <script src="<?php echo e(asset('assets/common/vendor/jquery-2.2.4.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/common/js/jquery-2.2.4.min.js')); ?>"></script>
     <!-- bootstrap 4 js -->
     <script src="<?php echo e(asset('assets/common/js/popper.min.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/common/js/bootstrap.min.js')); ?>"></script>

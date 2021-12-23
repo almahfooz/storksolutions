@@ -296,6 +296,11 @@
                             <a href="{{route('admin.languages')}}" aria-expanded="true"><i class="ti-signal"></i> <span>{{__('Languages')}}</span></a>
                         </li>
                     @endif
+                     @if('super_admin' == auth()->user()->role )
+                     <li class="@if(request()->is('admin-home/courses*')) active @endif">
+                        <a href="{{route('admin.courses.index')}}" aria-expanded="true"><i class="ti-book"></i> <span>{{__('Courses')}}</span></a>
+                    </li>
+                    @endif
                 </ul>
             </nav>
         </div>

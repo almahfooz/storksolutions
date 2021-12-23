@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 /*
@@ -323,5 +326,19 @@ Route::prefix('admin-home')->group(function (){
     Route::post('/languages/update','LanguageController@update')->name('admin.languages.update');
     Route::post('/languages/delete/{id}','LanguageController@delete')->name('admin.languages.delete');
     Route::post('/languages/default/{id}','LanguageController@make_default')->name('admin.languages.default');
+
+    // Courses
+
+    Route::get('/courses', [CourseController::class, 'index'])->name('admin.courses.index');
+    Route::get('/courses/{course}', [CourseController::class, 'show'])->name('admin.courses.show');
+    Route::post('/courses', [CourseController::class, 'store'])->name('admin.courses.store');
+    Route::patch('/courses/{course}', [CourseController::class, 'update'])->name('admin.courses.update');
+    Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('admin.courses.destroy');
+    
+    Route::post('/courses/{course}/students/add', [CourseController::class, 'addStudents'])->name('admin.courses.students.add');
+    Route::post('/courses/{course}/students/import', [CourseController::class, 'importStudents'])->name('admin.courses.students.import');
+
+    Route::patch('/students/{student}', [StudentController::class, 'update'])->name('admin.students.update');
+    Route::post('/students/delete', [StudentController::class, 'destroy'])->name('admin.students.destroy');
 
 });
