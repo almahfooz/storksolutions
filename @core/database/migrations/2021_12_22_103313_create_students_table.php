@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->unsignedBigInteger('course_id');
             $table->string('name');
             $table->boolean('status')->default(1);
+            $table->string('certificate_path')->nullable();
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');

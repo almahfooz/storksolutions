@@ -31,4 +31,23 @@ class Course extends Model
             return $date->format('d/m/Y');
         }
     }
+
+    public function hasDownloadableCertificates($count = true)
+    {
+        $hasDownloadableCertificates = false;
+        $certificates = [];
+
+        if($this->students()->count()) {
+            foreach($this->students as $student) {
+                if($student->hasCertificate()) {
+                    array_push($certificates, storage_path('app/public/certificates/' . basename($student->certificate_path)));
+                }
+            }
+
+            $hasDownloadableCertificates = count($certificates) > 0;
+        }
+
+        return $count ? $hasDownloadableCertificates : ($hasDownloadableCertificates ? $certificates : []);
+
+    }
 }

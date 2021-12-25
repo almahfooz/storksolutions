@@ -164,6 +164,8 @@
                                                     data-status="{{ $student->status }}"
                                                     data-edit-url="{{ route('admin.students.update', $student->id) }}"
                                                     class="btn btn-sm btn-info edit-student">Edit</button>
+
+                                                <a target="_blank" href="{{ route('admin.students.certificates.show', $student->id) }}" class="btn btn-sm btn-success">Show Certificate</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -302,6 +304,27 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Certificates</h4>
+                            <div class="d-flex">
+                                <form action="{{ route('admin.students.certificates.generate', $course->id) }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-primary" type="submit" id="generate-button">Generate</button>
+                                </form>
+            
+                                @if ($course->hasDownloadableCertificates())    
+                                <form action="{{ route('admin.students.certificates.download', $course->id) }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-success ml-2" type="submit" id="download-certificates-button">Download</button>
+                                </form>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -402,6 +425,11 @@
                     selectedStudents.val([])
                 }
             }
+
+            $('#generate-button, #download-certificates-button').click(function(e){
+                $(this).parent().submit();
+                $(this).attr('disabled', 'disabled');
+            })
 
 
         })

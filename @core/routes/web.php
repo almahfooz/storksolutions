@@ -41,6 +41,7 @@ Route::group(['middleware' => ['setlang','globalVariable']],function (){
     Route::get('/blog/search/','FrontendController@blog_search_page')->name('frontend.blog.search');
     Route::get('/blog/category/{id}/{any}','FrontendController@category_wise_blog_page')->name('frontend.blog.category');
     Route::get('/services/category/{id}/{any}','FrontendController@category_wise_services_page')->name('frontend.services.category');
+    Route::get('/students/{student}/certificates/show', [StudentController::class, 'showCertificate'])->name('students.certificates.show');
 
     //language change
     Route::get('/lang','FrontendController@lang_change')->name('frontend.langchange');
@@ -340,5 +341,9 @@ Route::prefix('admin-home')->group(function (){
 
     Route::patch('/students/{student}', [StudentController::class, 'update'])->name('admin.students.update');
     Route::post('/students/delete', [StudentController::class, 'destroy'])->name('admin.students.destroy');
+
+    Route::post('/courses/{course}/certificates/generate', [StudentController::class, 'generateCertificates'])->name('admin.students.certificates.generate');
+    Route::post('/courses/{course}/certificates/download', [StudentController::class, 'downloadCertificates'])->name('admin.students.certificates.download');
+    Route::get('/students/{student}/certificates/show', [CourseController::class, 'viewCertificate'])->name('admin.students.certificates.show');
 
 });

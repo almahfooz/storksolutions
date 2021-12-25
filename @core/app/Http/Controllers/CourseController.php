@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Imports\StudentsImport;
+use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CourseController extends Controller
@@ -50,7 +54,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        $students = $course->students()->paginate(10);
+        $students = $course->students()->paginate(25);
         return view('backend.courses.show', ['course' => $course, 'students' => $students]);
     }
 
@@ -114,5 +118,15 @@ class CourseController extends Controller
         Excel::import(new StudentsImport($course), $request->file('file'));
 
         return redirect()->route('admin.courses.show', $course->id)->with(['msg' => 'The students have been imported.', 'type' => 'success']);
+    }
+
+    public function viewCertificate(Student $student)
+    {
+        if($student->hasCertificate()) {
+            $file = file_get_contents('assets/certificates/' . basename($student->certificate_path));
+            return response($file)->header('Content-type','image/png');
+        }
+
+        return back();
     }
 }
