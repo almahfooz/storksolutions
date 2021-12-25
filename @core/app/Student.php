@@ -37,7 +37,7 @@ class Student extends Model
         if($this->status == 1) {
             $img = Image::make('assets/common/images/certificate_template.png');
             // Generate QR code and attach it to the template
-            $qrCode = (string)QrCode::format('png')->size(250)->generate(route('admin.students.certificates.show', $this->id));
+            $qrCode = (string)QrCode::format('png')->size(250)->generate(route('students.certificates.show', $this->id));
             $qr = imagecreatefromstring($qrCode);
             $img->insert($qr, 'top-right', 146, 136);
     
