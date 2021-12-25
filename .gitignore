@@ -10,6 +10,9 @@ bootstrap/compiled.php
 app/storage/
 @core/storage/framework/views/
 @core/storage/framework/sessions/
+@core/storage/logs/
+@core/storage/app/public/certificates/
+assets/certificates/
 
 # Laravel 5 & Lumen specific
 public/storage
