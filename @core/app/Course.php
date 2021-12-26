@@ -40,7 +40,7 @@ class Course extends Model
         if($this->students()->count()) {
             foreach($this->students as $student) {
                 if($student->hasCertificate()) {
-                    array_push($certificates, storage_path('app/public/certificates/' . basename($student->certificate_path)));
+                    array_push($certificates, 'assets/certificates/' . basename($student->certificate_path));
                 }
             }
 

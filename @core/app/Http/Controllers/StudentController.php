@@ -6,6 +6,7 @@ use App\Course;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use ZanySoft\Zip\ZipFacade as Zip;
 use ZipArchive;
 
 class StudentController extends Controller
@@ -73,18 +74,29 @@ class StudentController extends Controller
             if($course->hasDownloadableCertificates()) {
                 $certificates = $course->hasDownloadableCertificates(false);
                 // zip and download
-                $zip = new ZipArchive();
                 $zipPath = 'assets/certificates/' . Str::slug($course->name). '_' . $course->id . '_certificates.zip';
+                
 
-                if ($zip->open(($zipPath), ZipArchive::CREATE) === true) {
-                    foreach ($certificates as $key => $certificate) {
-                        $zip->addFile($certificate);
+                $zip = new ZipArchive();
+
+                if(file_exists($zipPath)) {
+                    unlink($zipPath);
+                }
+
+                if($zip->open($zipPath, ZipArchive::CREATE) == true) {
+                    foreach($certificates as $certificate) {
+                        $zip->addFile($certificate, basename($certificate));
                     }
 
                     $zip->close();
-
-                    return response()->download($zipPath);
                 }
+
+                if(file_exists($zipPath)) {
+                    return response()->download($zipPath);
+                } else {
+                    return back()->with(['msg' => 'Unable to create the zip file', 'type' => 'danger']);
+                }
+                
             }
         }
 

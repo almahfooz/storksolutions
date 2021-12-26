@@ -78,4 +78,15 @@
       'QrCode' => 'SimpleSoftwareIO\\QrCode\\Facades\\QrCode',
     ),
   ),
+  'zanysoft/laravel-zip' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ZanySoft\\Zip\\ZipServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Zip' => 'ZanySoft\\Zip\\ZipFacade',
+    ),
+  ),
 );

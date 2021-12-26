@@ -305,6 +305,7 @@
                     </div>
                 </div>
 
+                @if ($course->students()->count())     
                 <div class="mt-2">
                     <div class="card">
                         <div class="card-body">
@@ -325,6 +326,8 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
             </div>
         </div>
     </div>
