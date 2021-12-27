@@ -259,13 +259,13 @@
                         <!--Map Canvas-->
                         <div class="map-canvas" data-zoom="12" data-lat="{{ get_static_option('contact_page_map_section_latitude') }}" data-lng="{{ get_static_option('contact_page_map_section_longitude') }}"
                             data-type="roadmap" data-hue="#ffc400" data-title="{{ get_static_option('site_title') }}"
-                            data-icon-path="{{ asset('assets/frontend/finano/images/logo.png') }}"
+                            data-icon-path="{{ asset('assets/frontend/finano/images/icons/logo.png') }}"
                             data-content="22 Lingu Crescent, Wuse 2, Abuja<br><a href='mailto:storkhumancapital@gmail.com'>storkhumancapital@gmail.com</a>">
                         </div>
                     </div>
                 </div>
                 <!--Right Column-->
-                <div class="right-column" style="background-image:url({{ asset('assets/frontend/finano/images/resource/image-1.jpg') }})">
+                <div class="right-column" style="background-image:url({{ asset('assets/frontend/finano/images/resource/image-1.jpeg') }})">
                     <div class="content">
                         <h2>Request for
                             <span>quote</span>
