@@ -188,7 +188,7 @@
  <script src="<?php echo e(asset('assets/frontend/finano/js/jquery-ui.js')); ?>"></script>
  <script src="<?php echo e(asset('assets/frontend/finano/js/main.js')); ?>"></script>
  <!--Google Map APi Key-->
- <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
+ <script src="https://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
  <script src="<?php echo e(asset('assets/frontend/finano/js/map-script.js')); ?>"></script>
  <!--End Google Map APi-->
 
