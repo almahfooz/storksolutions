@@ -13,6 +13,7 @@ app/storage/
 @core/storage/logs/
 @core/storage/app/public/certificates/
 assets/certificates/
+assets/uploads/gallery-images/
 
 # Laravel 5 & Lumen specific
 public/storage
