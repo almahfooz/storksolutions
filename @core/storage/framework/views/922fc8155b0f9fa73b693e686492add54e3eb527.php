@@ -269,7 +269,7 @@
                     </div>
                 </div>
                 <!--Right Column-->
-                <div class="right-column" style="background-image:url(images/resource/image-1.jpg)">
+                <div class="right-column" style="background-image:url(<?php echo e(asset('assets/frontend/finano/images/resource/image-1.jpg')); ?>)">
                     <div class="content">
                         <h2>Request for
                             <span>quote</span>

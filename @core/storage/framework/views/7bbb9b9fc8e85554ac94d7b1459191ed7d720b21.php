@@ -54,7 +54,9 @@
                          <!--Footer Column-->
                          <div class="footer-column col-lg-6 col-md-6 col-sm-12">
                              <div class="footer-widget links-widget">
-                                 <h4><?php echo e(get_static_option('important_link_' . get_user_lang() . '_widget_title')); ?></h4>
+                                 <h4><?php echo e(get_static_option('important_link_' . get_user_lang() . '_widget_title')); ?>
+
+                                 </h4>
                                  <ul class="list-link">
                                      <?php $useful_links_arr = json_decode($all_usefull_links->content); ?>
                                      <?php $__currentLoopData = $useful_links_arr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -73,45 +75,51 @@
                                      <div class="images-outer clearfix">
                                          <!--Image Box-->
                                          <figure class="image-box">
-                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/1.jpg')); ?>" class="lightbox-image"
-                                                 data-fancybox="footer-gallery" title="Image Title Here"
-                                                 data-fancybox-group="footer-gallery"><img
-                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-1.jpg')); ?>" alt=""></a>
+                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/1.jpg')); ?>"
+                                                 class="lightbox-image" data-fancybox="footer-gallery"
+                                                 title="Image Title Here" data-fancybox-group="footer-gallery"><img
+                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-1.jpg')); ?>"
+                                                     alt=""></a>
                                          </figure>
                                          <!--Image Box-->
                                          <figure class="image-box">
-                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/2.jpg')); ?>" class="lightbox-image"
-                                                 data-fancybox="footer-gallery" title="Image Title Here"
-                                                 data-fancybox-group="footer-gallery"><img
-                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-2.jpg')); ?>" alt=""></a>
+                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/2.jpg')); ?>"
+                                                 class="lightbox-image" data-fancybox="footer-gallery"
+                                                 title="Image Title Here" data-fancybox-group="footer-gallery"><img
+                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-2.jpg')); ?>"
+                                                     alt=""></a>
                                          </figure>
                                          <!--Image Box-->
                                          <figure class="image-box">
-                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/3.jpg')); ?>" class="lightbox-image"
-                                                 data-fancybox="footer-gallery" title="Image Title Here"
-                                                 data-fancybox-group="footer-gallery"><img
-                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-3.jpg')); ?>" alt=""></a>
+                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/3.jpg')); ?>"
+                                                 class="lightbox-image" data-fancybox="footer-gallery"
+                                                 title="Image Title Here" data-fancybox-group="footer-gallery"><img
+                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-3.jpg')); ?>"
+                                                     alt=""></a>
                                          </figure>
                                          <!--Image Box-->
                                          <figure class="image-box">
-                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/4.jpg')); ?>" class="lightbox-image"
-                                                 data-fancybox="footer-gallery" title="Image Title Here"
-                                                 data-fancybox-group="footer-gallery"><img
-                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-4.jpg')); ?>" alt=""></a>
+                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/4.jpg')); ?>"
+                                                 class="lightbox-image" data-fancybox="footer-gallery"
+                                                 title="Image Title Here" data-fancybox-group="footer-gallery"><img
+                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-4.jpg')); ?>"
+                                                     alt=""></a>
                                          </figure>
                                          <!--Image Box-->
                                          <figure class="image-box">
-                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/5.jpg')); ?>" class="lightbox-image"
-                                                 data-fancybox="footer-gallery" title="Image Title Here"
-                                                 data-fancybox-group="footer-gallery"><img
-                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-5.jpg')); ?>" alt=""></a>
+                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/5.jpg')); ?>"
+                                                 class="lightbox-image" data-fancybox="footer-gallery"
+                                                 title="Image Title Here" data-fancybox-group="footer-gallery"><img
+                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-5.jpg')); ?>"
+                                                     alt=""></a>
                                          </figure>
                                          <!--Image Box-->
                                          <figure class="image-box">
-                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/6.jpg')); ?>" class="lightbox-image"
-                                                 data-fancybox="footer-gallery" title="Image Title Here"
-                                                 data-fancybox-group="footer-gallery"><img
-                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-6.jpg')); ?>" alt=""></a>
+                                             <a href="<?php echo e(asset('assets/frontend/finano/images/gallery/6.jpg')); ?>"
+                                                 class="lightbox-image" data-fancybox="footer-gallery"
+                                                 title="Image Title Here" data-fancybox-group="footer-gallery"><img
+                                                     src="<?php echo e(asset('assets/frontend/finano/images/gallery/footer-gallery-thumb-6.jpg')); ?>"
+                                                     alt=""></a>
                                          </figure>
                                      </div>
                                  </div>
@@ -202,7 +210,7 @@
          var s1 = document.createElement("script"),
              s0 = document.getElementsByTagName("script")[0];
          s1.async = true;
-         s1.src = "https://embed.tawk.to/<?php echo e(get_static_option('tawk_api_key')); ?>/default";
+         s1.src = 'https://embed.tawk.to/61c9c769c82c976b71c3af5d/1fnu35tpt';
          s1.charset = 'UTF-8';
          s1.setAttribute('crossorigin', '*');
          s0.parentNode.insertBefore(s1, s0);
@@ -212,4 +220,5 @@
 
  </body>
 
- </html><?php /**PATH /Users/ktmsulaim/Sites/storksolutions/@core/resources/views/frontend/partials/footer.blade.php ENDPATH**/ ?>
+ </html>
+<?php /**PATH /Users/ktmsulaim/Sites/storksolutions/@core/resources/views/frontend/partials/footer.blade.php ENDPATH**/ ?>

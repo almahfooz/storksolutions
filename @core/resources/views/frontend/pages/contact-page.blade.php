@@ -11,7 +11,7 @@
         <!--Map Outer-->
         <div class="map-outer">
             <!--Map Canvas-->
-            <div class="map-canvas" data-zoom="12" data-lat="{{get_static_option('contact_page_map_section_latitude')}}" data-lng="{{get_static_option('contact_page_map_section_longitude')}}" data-type="roadmap" data-hue="#ffc400" data-title="Stork Solutions" data-icon-path="{{ asset('assets/frontend/finano/images/icons/map-marker.png') }}" data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
+            <div class="map-canvas" data-zoom="12" data-lat="{{get_static_option('contact_page_map_section_latitude')}}" data-lng="{{ get_static_option('contact_page_map_section_longitude') }}" data-type="roadmap" data-hue="#ffc400" data-title="Stork Solutions" data-icon-path="{{ asset('assets/frontend/finano/images/icons/map-marker.png') }}" data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
             </div>
         </div>
     </div>
