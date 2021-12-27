@@ -54,9 +54,7 @@ class="main-header <?php if($secondary): ?> header-style-five five-alternate <?p
         <!--Logo-->
         <div class="logo pull-left">
             <a href="<?php echo e(url('/')); ?>">
-                <?php if(file_exists('assets/uploads/'.get_static_option('site_logo'))): ?>
-                    <img src="<?php echo e(asset('assets/uploads/'.get_static_option('site_logo'))); ?>" alt="site logo">
-                <?php endif; ?>
+                <img src="<?php echo e(asset('assets/frontend/finano/images/logo_small_inverse.png')); ?>" alt="site logo">
             </a>
         </div>
 

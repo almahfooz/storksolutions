@@ -54,9 +54,7 @@ class="main-header @if($secondary) header-style-five five-alternate @endif">
         <!--Logo-->
         <div class="logo pull-left">
             <a href="{{url('/')}}">
-                @if(file_exists('assets/uploads/'.get_static_option('site_logo')))
-                    <img src="{{asset('assets/uploads/'.get_static_option('site_logo'))}}" alt="site logo">
-                @endif
+                <img src="{{asset('assets/frontend/finano/images/logo_small_inverse.png') }}" alt="site logo">
             </a>
         </div>
 
