@@ -115,6 +115,40 @@
     <!-- End About Section -->
 @endif
 
+@if ($all_gallery_items && count($all_gallery_items))    
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="outer-container">
+            <div
+                class="gallery-carousel owl-carousel owl-theme">
+
+                @foreach ($all_gallery_items as $item)
+                <!--Gallery Block-->
+                <div class="gallery-block">
+                    <div class="inner-box">
+                        <div class="image">
+                            @if(file_exists('assets/uploads/gallery-images/gallery-image-'. $item->id . '.' . $item->image))
+                                <img src="{{asset('assets/uploads/gallery-images/gallery-image-'. $item->id . '.' . $item->image)}}" alt="{{ $item->title }}">
+                            @endif
+                            <div class="overlay-box">
+                                <div class="overlay-inner">
+                                    <h3>
+                                        <a href="javascript:void(0)">{{ $item->title }}</a>
+                                    </h3>
+                                    <div class="text">{{ $item->description }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- End Gallery Section -->
+@endif
+
 @if(!empty(get_static_option('home_page_service_section_status')))
 <!-- Services Section Ten -->
 <section class="services-section-ten">
@@ -243,19 +277,24 @@
                         <div class="quote-form">
 
                             <!--Contact Form-->
-                            <form method="post" action="contact.html">
+                            <form method="post" action="{{ route('frontend.quote.message') }}">
+                                @csrf
                                 <div class="row clearfix">
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="username" placeholder="How to assist you:*" required>
+                                        <input type="text" name="name" placeholder="Your name" required>
                                     </div>
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="phone" placeholder="Phone number:*" required>
+                                        <input type="email" name="email" placeholder="Yourr email address" required>
+                                    </div>
+
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <textarea name="message" id="messagge" placeholder="Your message:"></textarea>
                                     </div>
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="text" placeholder="Your name:*" required>
+                                        <input type="text" name="text" placeholder="The subject" required>
                                     </div>
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-12">

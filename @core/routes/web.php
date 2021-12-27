@@ -136,6 +136,12 @@ Route::prefix('admin-home')->group(function (){
     Route::post('/header','HeaderSliderController@store');
     Route::post('/update-header','HeaderSliderController@update')->name('admin.header.update');
     Route::post('/delete-header/{id}','HeaderSliderController@delete')->name('admin.header.delete');
+    
+    //header slider
+    Route::get('/galleries','GalleryController@index')->name('admin.galleries');
+    Route::post('/galleries','GalleryController@store');
+    Route::post('/update-galleries','GalleryController@update')->name('admin.galleries.update');
+    Route::post('/delete-galleries/{id}','GalleryController@delete')->name('admin.galleries.delete');
 
     //price plan
     Route::get('/price-plan','PricePlanController@index')->name('admin.price.plan');
@@ -346,4 +352,8 @@ Route::prefix('admin-home')->group(function (){
     Route::post('/courses/{course}/certificates/download', [StudentController::class, 'downloadCertificates'])->name('admin.students.certificates.download');
     Route::get('/students/{student}/certificates/show', [CourseController::class, 'viewCertificate'])->name('admin.students.certificates.show');
 
+});
+
+Route::get("/test", function(){
+    phpinfo();
 });

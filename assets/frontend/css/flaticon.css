@@ -3,7 +3,7 @@
   	Creation date: 13/02/2019 16:36
   	*/
 
-@font-face {
+/* @font-face {
   font-family: "Flaticon";
   src: url("../webfonts/Flaticon.eot");
   src: url("../webfonts/Flaticon.eot?#iefix") format("embedded-opentype"),
@@ -20,7 +20,7 @@
     font-family: "Flaticon";
     src: url("../webfonts/Flaticon.svg#Flaticon") format("svg");
   }
-}
+} */
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   

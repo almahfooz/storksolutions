@@ -75,6 +75,11 @@
                                         {{__('Header Area')}}
                                     </a>
                                 </li>
+                                <li class="{{active_menu('admin-home/galleries')}}">
+                                    <a href="{{route('admin.galleries')}}" >
+                                        {{__('Image Gallery')}}
+                                    </a>
+                                </li>
                                 <li class="{{active_menu('admin-home/keyfeatures')}}">
                                     <a href="{{route('admin.keyfeatures')}}">{{__('Key Features')}}</a>
                                 </li>

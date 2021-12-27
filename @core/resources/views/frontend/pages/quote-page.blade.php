@@ -54,7 +54,7 @@
                                             placeholder="{{ __('Enter Your Subject') }}">
                                     </div>
                                     <div class="form-group textarea">
-                                        <textarea class="form-control" name="message" id="message" cols="30" rows="5"
+                                        <textarea class="form-control lg" name="message" id="message" cols="30" rows="5"
                                             placeholder="{{ __('Enter Your Message') }}"></textarea>
                                     </div>
                                     <div class="btn-wrapper text-center">

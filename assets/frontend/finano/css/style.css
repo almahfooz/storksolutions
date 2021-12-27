@@ -53,8 +53,8 @@ font-family: 'Muli', sans-serif;*/
 
 @import url("font-awesome.css");
 @import url("../../css/fontawesome.min.css");
-@import url("flaticon.css");
 @import url("../../css/flaticon.css");
+@import url("flaticon.css");
 @import url("animate.css");
 @import url("owl.css");
 @import url("jquery-ui.css");
@@ -4953,7 +4953,9 @@ img {
 .quote-form .form-group input[type="text"],
 .quote-form .form-group input[type="tel"],
 .quote-form .form-group input[type="email"],
-.quote-form .form-group select {
+.quote-form .form-group select,
+.quote-form .form-group textarea
+{
   position: relative;
   display: block;
   width: 100%;
@@ -4983,7 +4985,7 @@ img {
   color: #333333;
 }
 
-.quote-form .form-group textarea {
+.quote-form .form-group textarea.lg {
   position: relative;
   display: block;
   width: 100%;

@@ -81,6 +81,12 @@
 
                                     </a>
                                 </li>
+                                <li class="<?php echo e(active_menu('admin-home/galleries')); ?>">
+                                    <a href="<?php echo e(route('admin.galleries')); ?>" >
+                                        <?php echo e(__('Image Gallery')); ?>
+
+                                    </a>
+                                </li>
                                 <li class="<?php echo e(active_menu('admin-home/keyfeatures')); ?>">
                                     <a href="<?php echo e(route('admin.keyfeatures')); ?>"><?php echo e(__('Key Features')); ?></a>
                                 </li>
